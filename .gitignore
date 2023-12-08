@@ -1,0 +1,13 @@
+# IDEs
+.idea
+.vscode
+
+# Environments
+.venv
+
+# OS specific files
+.DS_Store
+
+# Project
+/models/*
+/reports/*

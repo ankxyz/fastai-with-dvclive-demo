@@ -1,0 +1,4 @@
+dvc==3.33.3
+dvclive==3.4.1
+fastai==2.7.13
+torch==2.1.1
