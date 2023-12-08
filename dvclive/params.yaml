@@ -1,7 +1,0 @@
-model: Sequential
-batch_size: 8
-batch_per_epoch: 5
-frozen: false
-frozen_idx: 0
-transforms: "[Pipeline: PILBase.create, Pipeline: parent_label -> Categorize -- {'vocab':
-  None, 'sort': True, 'add_na': False}]"

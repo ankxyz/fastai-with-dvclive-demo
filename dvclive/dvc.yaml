@@ -1,8 +1,3 @@
-params:
-- params.yaml
-- params.yaml
-- params.yaml
-- params.yaml
 metrics:
 - metrics.json
 - metrics.json
