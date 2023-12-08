@@ -1,4 +1,4 @@
-# DVC with fast.ai demo
+# `fast.ai` classification demo with usage of `DVCLive`
 
 **Goal**: use `DVC`/`DVCLive` alongside `fast.ai`.
 **Description**: make classification using `fast.ai` and log metrics using `DVCLive`
