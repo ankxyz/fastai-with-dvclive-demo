@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <title>DVC Plot</title>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.2.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.18.2"></script>
+    
+    <style>
+        table {
+            border-spacing: 15px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id = "dvclive_plots_metrics_accuracy_tsv">
+        <script type = "text/javascript">
+            var spec = {"$schema": "https://vega.github.io/schema/vega-lite/v5.json", "data": {"values": [{"step": "0", "accuracy": "0.5714285969734192", "rev": "workspace"}, {"step": "1", "accuracy": "0.8571428656578064", "rev": "workspace"}, {"step": "2", "accuracy": "0.9285714030265808", "rev": "workspace"}]}, "title": "dvclive/plots/metrics/accuracy.tsv", "width": 300, "height": 300, "params": [{"name": "smooth", "value": 0.001, "bind": {"input": "range", "min": 0.001, "max": 1, "step": 0.001}}], "encoding": {"x": {"field": "step", "type": "quantitative", "title": "step"}, "color": {"field": "rev", "scale": {"domain": ["workspace"], "range": ["#945dd6"]}}, "strokeDash": {}}, "layer": [{"layer": [{"params": [{"name": "grid", "select": "interval", "bind": "scales"}], "mark": "line"}, {"transform": [{"filter": {"param": "hover", "empty": false}}], "mark": "point"}], "encoding": {"y": {"field": "accuracy", "type": "quantitative", "title": "accuracy", "scale": {"zero": false}}, "color": {"field": "rev", "type": "nominal"}}, "transform": [{"loess": "accuracy", "on": "step", "groupby": ["rev"], "bandwidth": {"signal": "smooth"}}]}, {"mark": {"type": "line", "opacity": 0.2}, "encoding": {"x": {"field": "step", "type": "quantitative", "title": "step"}, "y": {"field": "accuracy", "type": "quantitative", "title": "accuracy", "scale": {"zero": false}}, "color": {"field": "rev", "type": "nominal"}}}, {"mark": {"type": "circle", "size": 10}, "encoding": {"x": {"aggregate": "max", "field": "step", "type": "quantitative", "title": "step"}, "y": {"aggregate": {"argmax": "step"}, "field": "accuracy", "type": "quantitative", "title": "accuracy", "scale": {"zero": false}}, "color": {"field": "rev", "type": "nominal"}}}, {"transform": [{"calculate": "datum.rev", "as": "pivot_field"}, {"pivot": "pivot_field", "value": "accuracy", "groupby": ["step"]}], "mark": {"type": "rule", "tooltip": {"content": "data"}, "stroke": "grey"}, "encoding": {"opacity": {"condition": {"value": 0.3, "param": "hover", "empty": false}, "value": 0}}, "params": [{"name": "hover", "select": {"type": "point", "fields": ["step"], "nearest": true, "on": "mouseover", "clear": "mouseout"}}]}]};
+            vegaEmbed('#dvclive_plots_metrics_accuracy_tsv', spec);
+        </script>
+    </div>
+    
+
+    <div id = "dvclive_plots_metrics_error_rate_tsv">
+        <script type = "text/javascript">
+            var spec = {"$schema": "https://vega.github.io/schema/vega-lite/v5.json", "data": {"values": [{"step": "0", "error_rate": "0.4285714328289032", "rev": "workspace"}, {"step": "1", "error_rate": "0.1428571194410324", "rev": "workspace"}, {"step": "2", "error_rate": "0.07142855226993561", "rev": "workspace"}]}, "title": "dvclive/plots/metrics/error_rate.tsv", "width": 300, "height": 300, "params": [{"name": "smooth", "value": 0.001, "bind": {"input": "range", "min": 0.001, "max": 1, "step": 0.001}}], "encoding": {"x": {"field": "step", "type": "quantitative", "title": "step"}, "color": {"field": "rev", "scale": {"domain": ["workspace"], "range": ["#945dd6"]}}, "strokeDash": {}}, "layer": [{"layer": [{"params": [{"name": "grid", "select": "interval", "bind": "scales"}], "mark": "line"}, {"transform": [{"filter": {"param": "hover", "empty": false}}], "mark": "point"}], "encoding": {"y": {"field": "error_rate", "type": "quantitative", "title": "error_rate", "scale": {"zero": false}}, "color": {"field": "rev", "type": "nominal"}}, "transform": [{"loess": "error_rate", "on": "step", "groupby": ["rev"], "bandwidth": {"signal": "smooth"}}]}, {"mark": {"type": "line", "opacity": 0.2}, "encoding": {"x": {"field": "step", "type": "quantitative", "title": "step"}, "y": {"field": "error_rate", "type": "quantitative", "title": "error_rate", "scale": {"zero": false}}, "color": {"field": "rev", "type": "nominal"}}}, {"mark": {"type": "circle", "size": 10}, "encoding": {"x": {"aggregate": "max", "field": "step", "type": "quantitative", "title": "step"}, "y": {"aggregate": {"argmax": "step"}, "field": "error_rate", "type": "quantitative", "title": "error_rate", "scale": {"zero": false}}, "color": {"field": "rev", "type": "nominal"}}}, {"transform": [{"calculate": "datum.rev", "as": "pivot_field"}, {"pivot": "pivot_field", "value": "error_rate", "groupby": ["step"]}], "mark": {"type": "rule", "tooltip": {"content": "data"}, "stroke": "grey"}, "encoding": {"opacity": {"condition": {"value": 0.3, "param": "hover", "empty": false}, "value": 0}}, "params": [{"name": "hover", "select": {"type": "point", "fields": ["step"], "nearest": true, "on": "mouseover", "clear": "mouseout"}}]}]};
+            vegaEmbed('#dvclive_plots_metrics_error_rate_tsv', spec);
+        </script>
+    </div>
+    
+
+    <div id = "dvclive_plots_metrics_eval_loss_tsv">
+        <script type = "text/javascript">
+            var spec = {"$schema": "https://vega.github.io/schema/vega-lite/v5.json", "data": {"values": [{"step": "0", "loss": "0.6394959688186646", "rev": "workspace"}, {"step": "1", "loss": "0.28360676765441895", "rev": "workspace"}, {"step": "2", "loss": "0.24353300034999847", "rev": "workspace"}]}, "title": "dvclive/plots/metrics/eval/loss.tsv", "width": 300, "height": 300, "params": [{"name": "smooth", "value": 0.001, "bind": {"input": "range", "min": 0.001, "max": 1, "step": 0.001}}], "encoding": {"x": {"field": "step", "type": "quantitative", "title": "step"}, "color": {"field": "rev", "scale": {"domain": ["workspace"], "range": ["#945dd6"]}}, "strokeDash": {}}, "layer": [{"layer": [{"params": [{"name": "grid", "select": "interval", "bind": "scales"}], "mark": "line"}, {"transform": [{"filter": {"param": "hover", "empty": false}}], "mark": "point"}], "encoding": {"y": {"field": "loss", "type": "quantitative", "title": "loss", "scale": {"zero": false}}, "color": {"field": "rev", "type": "nominal"}}, "transform": [{"loess": "loss", "on": "step", "groupby": ["rev"], "bandwidth": {"signal": "smooth"}}]}, {"mark": {"type": "line", "opacity": 0.2}, "encoding": {"x": {"field": "step", "type": "quantitative", "title": "step"}, "y": {"field": "loss", "type": "quantitative", "title": "loss", "scale": {"zero": false}}, "color": {"field": "rev", "type": "nominal"}}}, {"mark": {"type": "circle", "size": 10}, "encoding": {"x": {"aggregate": "max", "field": "step", "type": "quantitative", "title": "step"}, "y": {"aggregate": {"argmax": "step"}, "field": "loss", "type": "quantitative", "title": "loss", "scale": {"zero": false}}, "color": {"field": "rev", "type": "nominal"}}}, {"transform": [{"calculate": "datum.rev", "as": "pivot_field"}, {"pivot": "pivot_field", "value": "loss", "groupby": ["step"]}], "mark": {"type": "rule", "tooltip": {"content": "data"}, "stroke": "grey"}, "encoding": {"opacity": {"condition": {"value": 0.3, "param": "hover", "empty": false}, "value": 0}}, "params": [{"name": "hover", "select": {"type": "point", "fields": ["step"], "nearest": true, "on": "mouseover", "clear": "mouseout"}}]}]};
+            vegaEmbed('#dvclive_plots_metrics_eval_loss_tsv', spec);
+        </script>
+    </div>
+    
+
+    <div id = "dvclive_plots_metrics_train_loss_tsv">
+        <script type = "text/javascript">
+            var spec = {"$schema": "https://vega.github.io/schema/vega-lite/v5.json", "data": {"values": [{"step": "0", "loss": "0.9541604518890381", "rev": "workspace"}, {"step": "1", "loss": "0.82637619972229", "rev": "workspace"}, {"step": "2", "loss": "0.8826702237129211", "rev": "workspace"}]}, "title": "dvclive/plots/metrics/train/loss.tsv", "width": 300, "height": 300, "params": [{"name": "smooth", "value": 0.001, "bind": {"input": "range", "min": 0.001, "max": 1, "step": 0.001}}], "encoding": {"x": {"field": "step", "type": "quantitative", "title": "step"}, "color": {"field": "rev", "scale": {"domain": ["workspace"], "range": ["#945dd6"]}}, "strokeDash": {}}, "layer": [{"layer": [{"params": [{"name": "grid", "select": "interval", "bind": "scales"}], "mark": "line"}, {"transform": [{"filter": {"param": "hover", "empty": false}}], "mark": "point"}], "encoding": {"y": {"field": "loss", "type": "quantitative", "title": "loss", "scale": {"zero": false}}, "color": {"field": "rev", "type": "nominal"}}, "transform": [{"loess": "loss", "on": "step", "groupby": ["rev"], "bandwidth": {"signal": "smooth"}}]}, {"mark": {"type": "line", "opacity": 0.2}, "encoding": {"x": {"field": "step", "type": "quantitative", "title": "step"}, "y": {"field": "loss", "type": "quantitative", "title": "loss", "scale": {"zero": false}}, "color": {"field": "rev", "type": "nominal"}}}, {"mark": {"type": "circle", "size": 10}, "encoding": {"x": {"aggregate": "max", "field": "step", "type": "quantitative", "title": "step"}, "y": {"aggregate": {"argmax": "step"}, "field": "loss", "type": "quantitative", "title": "loss", "scale": {"zero": false}}, "color": {"field": "rev", "type": "nominal"}}}, {"transform": [{"calculate": "datum.rev", "as": "pivot_field"}, {"pivot": "pivot_field", "value": "loss", "groupby": ["step"]}], "mark": {"type": "rule", "tooltip": {"content": "data"}, "stroke": "grey"}, "encoding": {"opacity": {"condition": {"value": 0.3, "param": "hover", "empty": false}, "value": 0}}, "params": [{"name": "hover", "select": {"type": "point", "fields": ["step"], "nearest": true, "on": "mouseover", "clear": "mouseout"}}]}]};
+            vegaEmbed('#dvclive_plots_metrics_train_loss_tsv', spec);
+        </script>
+    </div>
+    
+</body>
+</html>

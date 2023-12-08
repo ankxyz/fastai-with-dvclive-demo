@@ -1,0 +1,19 @@
+params:
+- params.yaml
+- params.yaml
+- params.yaml
+- params.yaml
+metrics:
+- metrics.json
+- metrics.json
+- metrics.json
+- metrics.json
+plots:
+- plots/metrics:
+    x: step
+- plots/metrics:
+    x: step
+- plots/metrics:
+    x: step
+- plots/metrics:
+    x: step
