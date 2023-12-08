@@ -1,1 +1,1 @@
-# DVC with fast.ai demo
+# `fast.ai` classification demo with usage of `DVCLive`
