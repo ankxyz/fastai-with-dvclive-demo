@@ -2,7 +2,7 @@ import json
 import logging
 from pathlib import Path
 
-from dvclive.fastai import DVCLiveCallback
+from dvclive import Live
 from fastai.vision.augment import aug_transforms
 from fastai.vision.core import defaults
 from fastai.vision.data import ImageDataLoaders, Normalize, imagenet_stats
@@ -44,14 +44,24 @@ if __name__ == "__main__":
     required_metrics = [error_rate, accuracy]
     learn = vision_learner(data, models.resnet34, metrics=required_metrics)
     learn.unfreeze()
-    dvc_cb = DVCLiveCallback(dvcyaml="dvclive/dvc.yaml",  save_dvc_exp=False)
-    learn.fit_one_cycle(EPOCHS, lr_max=LR_MAX, cbs=[dvc_cb])
+    learn.fit_one_cycle(EPOCHS, lr_max=LR_MAX)
 
     logging.info("Save learner")
     dataset_size = len(data.dataset.items)
     model_path = Path("./models").absolute() / "model.pkl"
     learn.export(fname=model_path)
     logging.info(f"Model (learner) saved in {model_path}")
+
+    logging.info("Log metrics using Live class object")
+
+    metric_names = ["train/loss", "eval/loss"] + list(map(lambda obj: obj.__name__, required_metrics))
+    metric_values = learn.recorder.values
+
+    with Live(save_dvc_exp=False, dvcyaml="dvclive/dvc.yaml") as live:
+        for values in metric_values:
+            for name, value in zip(metric_names, values):
+                live.log_metric(name, value)
+            live.next_step()
 
     logging.info("Get train metrics")
     train_metrics_list = learn.recorder._train_mets
